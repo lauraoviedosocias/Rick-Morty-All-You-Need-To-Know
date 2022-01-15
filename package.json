@@ -1,0 +1,22 @@
+{
+  "name": "tp_4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lauraoviedosocias/Rick-Morty---All-You-Need-To-Know.git"
+  },
+  "author": "Laura",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lauraoviedosocias/Rick-Morty---All-You-Need-To-Know/issues"
+  },
+  "homepage": "https://github.com/lauraoviedosocias/Rick-Morty---All-You-Need-To-Know#readme",
+  "dependencies": {
+    "sass": "^1.48.0"
+  }
+}
