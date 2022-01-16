@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@100;300;400;600&family=Roboto:wght@100;300;400;500&display=swap');
+
+$tipografia-principal: "Azeret Mono";
+$color-principal: #fad2c9;
+$color-accesorio: #eac9ea;
+$color-fondo: #fdfcfb;
+$color-tipografia: #2a2c2f;
+$borde-redondeado: 8px;
+$color-secundario: #cfaad7;
+
+$sombra: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+
+@mixin flex-nav {
+    display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+
+@mixin flex-centrar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+body {
+    margin: 0;
+    box-sizing: border-box;
+    background-color: $color-fondo;
+}
+
+.main-section {
+    max-width: 1500px;
+    margin: auto;
+    margin-top: 50px;
+    border-radius: $borde-redondeado;
+    background-color: $color-fondo;
+}
+
+
+// HEADER
+
+header {
+    @include flex-nav();
+    height: 350px;
+    padding: 15px;
+    background-color: $color-secundario;
+    border-radius: $borde-redondeado;
+}
+
+.container-logo {
+    width: 500px;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+// SEARCH SECTION
+
+.search-section {
+    height: 100vh;
+    max-width: 1500px;
+    margin: auto;
+    margin-top: 30px;
+    padding: 15px;
+    box-shadow: $sombra;
+    border-radius: $borde-redondeado;
+    background-color: $color-principal;
+}
+
+.container-search, .container-sort {
+    @include flex-centrar;
+}
+
+h1, h2, h3, input {
+    margin: 0;
+    margin-top: 30px;
+    padding-left: 10px;
+    font-family: $tipografia-principal;
+}
+
+input, select, button {
+    font-family: $tipografia-principal;
+    font-size: 20px;
+    color: $color-tipografia;
+    margin-top: 25px;
+    padding-right: 10px;
+    margin-right: 10px;
+}
+
+// RESULTS SECTION

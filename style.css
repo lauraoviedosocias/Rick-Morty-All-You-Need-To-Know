@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@100;300;400;600&family=Roboto:wght@100;300;400;500&display=swap");
+body {
+  margin: 0;
+  box-sizing: border-box;
+  background-color: #fdfcfb;
+}
+
+.main-section {
+  max-width: 1500px;
+  margin: auto;
+  margin-top: 50px;
+  border-radius: 8px;
+  background-color: #fdfcfb;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 350px;
+  padding: 15px;
+  background-color: #cfaad7;
+  border-radius: 8px;
+}
+
+.container-logo {
+  width: 500px;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.search-section {
+  height: 100vh;
+  max-width: 1500px;
+  margin: auto;
+  margin-top: 30px;
+  padding: 15px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 8px;
+  background-color: #fad2c9;
+}
+
+.container-search, .container-sort {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+h1, h2, h3, input {
+  margin: 0;
+  margin-top: 30px;
+  padding-left: 10px;
+  font-family: "Azeret Mono";
+}
+
+input, select, button {
+  font-family: "Azeret Mono";
+  font-size: 20px;
+  color: #2a2c2f;
+  margin-top: 25px;
+  padding-right: 10px;
+  margin-right: 10px;
+}
+
+/*# sourceMappingURL=style.css.map */
