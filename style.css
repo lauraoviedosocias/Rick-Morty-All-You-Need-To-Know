@@ -33,7 +33,6 @@ img {
 }
 
 .search-section {
-  height: 100vh;
   max-width: 1500px;
   margin: auto;
   margin-top: 30px;
@@ -56,6 +55,12 @@ h1, h2, h3, input {
   font-family: "Azeret Mono";
 }
 
+li {
+  margin: 0;
+  padding-left: 10px;
+  font-family: "Azeret Mono";
+}
+
 input, select, button {
   font-family: "Azeret Mono";
   font-size: 20px;
@@ -63,6 +68,26 @@ input, select, button {
   margin-top: 25px;
   padding-right: 10px;
   margin-right: 10px;
+}
+
+.container-results {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+#cards-personajes {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cards {
+  height: 500px;
+  width: 290px;
+  margin: 15px;
+  padding: 20px;
+  border: 1px solid #2a2c2f;
+  border-radius: 8px;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -60,7 +60,6 @@ img {
 // SEARCH SECTION
 
 .search-section {
-    height: 100vh;
     max-width: 1500px;
     margin: auto;
     margin-top: 30px;
@@ -81,6 +80,12 @@ h1, h2, h3, input {
     font-family: $tipografia-principal;
 }
 
+li {
+    margin: 0;
+    padding-left: 10px;
+    font-family: $tipografia-principal;
+}
+
 input, select, button {
     font-family: $tipografia-principal;
     font-size: 20px;
@@ -91,3 +96,26 @@ input, select, button {
 }
 
 // RESULTS SECTION
+
+
+.container-results {
+    @include flex-nav();
+}
+
+#cards-personajes {
+    
+    display: flex;
+	flex-wrap: wrap;
+	 
+}
+
+
+.cards {
+    height: 500px;
+    width: 290px;
+    margin: 15px;
+    padding: 20px;
+    border: 1px solid $color-tipografia;
+    border-radius: $borde-redondeado;
+}
+

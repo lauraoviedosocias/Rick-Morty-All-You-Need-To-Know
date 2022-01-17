@@ -23,21 +23,37 @@
                 <h3>Search by:</h3>
                 <label for="search-sort"></label>
                 <select name="search-sort" id="search-sort">
-                    <option value="title">Characters</option>
-                    <option value="title">Episodes</option>
-                    <option value="title">Locations</option>
+                    <option value="characters" id="input-characters">Characters</option>
+                    <option value="episodes" id="input-episodes">Episodes</option>
+                    <option value="locations" id="input-locations">Locations</option>
                 </select>
 
                 <div class="input-search">
-                    <input type="text" id="input-characters-search" class="input-search" placeholder="I'm looking for..." aria-labelledby="search-title">
+                    <input type="text" id="input-search" class="input-search" placeholder="I'm looking for..." aria-labelledby="search-title">
                 </div>
-                <button type="button" class="search-button">Search</button>
+                <button type="button" class="search-button" id="search-button">Search</button>
             </div>             
             
             <!-- RESULTS SECTION -->
 
         <section class="results-section">
-            <h2>Results</h2>
+            
+            <div class="container-results">
+                <h2>Results</h2>
+            
+                <div id="pages">
+                    <button id="prev">Prev page</button>
+                    <button id="next">Next page</button>
+                </div>
+            
+            </div>
+
+            
+            <div id="cards-personajes"></div>
+            
+
+            
+            
         </section>
 
         
