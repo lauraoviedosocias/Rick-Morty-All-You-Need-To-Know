@@ -1,8 +1,11 @@
 
 const cardsPersonajes = document.getElementById("cards-personajes")
-// const inputSelectPersonajes = document.getElementById("input-characters")
-// const inputSelectCapitulos = document.getElementById("input-episodes")
-// const inputSelectUbicaciones = document.getElementById("input-locations")
+const filtroBusqueda = document.getElementById("search-sort")
+const inputTexto = document.getElementById("input-search")
+const form = document.getElementById("form-search")
+const botonPaginaPrevia = document.getElementById("prev")
+const botonPaginaSiguiente = document.getElementById("next")
+
 
 // fetch("https://rickandmortyapi.com/api")
 // .then((res) => res.json())
@@ -13,6 +16,29 @@ const cardsPersonajes = document.getElementById("cards-personajes")
 let paginaActual = 1
 
 
+
+// prev.onclick = () => {
+
+  
+
+//     // if (paginaActual === 1) {
+//     //     prev.disabled = true
+//     // } else if (paginaActual > 1) {
+//     //     prev.disabled = false
+//     // }
+//     paginaActual = paginaActual - 1
+//     // mostrarInformacionPersonajes()
+//     // mostrarInformacionEpisodios()
+//     // mostrarInformacionUbicaciones()
+    
+// }
+
+// next.onclick = () => {
+//     paginaActual = paginaActual + 1
+//     // mostrarInformacionPersonajes()
+//     // mostrarInformacionEpisodios()
+//     // mostrarInformacionUbicaciones()
+// }
 
 //                           PERSONAJES
 
@@ -109,7 +135,7 @@ const crearTarjetasUbicaciones = (data) => {
 
 //                  FUNCIONALIDAD DE FILTRO
 
-const filtroBusqueda = document.getElementById("search-sort")
+
  
 
 filtroBusqueda.onchange = () => {
@@ -127,53 +153,79 @@ filtroBusqueda.onchange = () => {
 
 }
 
-//                  FUNCIONALIDAD INPUT TEXTO
-
-const inputTexto = document.getElementById("input-search")
-const searchButton = document.getElementById("search-button")
-
-searchButton.onclick = () => {
-
-    console.log(inputTexto.value)
-
-    
+//                  FUNCIONALIDAD BUSQUEDA POR INPUT TEXT POR CADA CATEGORIA
 
 
+const buscar = (nombre) => {
+
+    if (filtroBusqueda.value === "characters") {
+
+        fetch(`https://rickandmortyapi.com/api/character/?name=${nombre}`)
+        .then((res) => res.json())
+        .then((data) => {
+            crearTarjetasPersonajes(data.results)
+        })
+    }
+
+    else if (filtroBusqueda.value === "episodes") {
+
+        fetch(`https://rickandmortyapi.com/api/episode/?name=${nombre}`)
+            .then((res) => res.json())
+            .then((data) => {
+                crearTarjetasEpisodios(data.results)
+            })
+    }
+
+    else if (filtroBusqueda.value === "locations") {
+        fetch(`https://rickandmortyapi.com/api/location/?name=${nombre}`)
+            .then((res) => res.json())
+            .then((data) => {
+                crearTarjetasUbicaciones(data.results)
+            })
+    }
 
 }
 
+form.oninput = (e) => {
+    e.preventDefault();
+    buscar(inputTexto.value)
+}
 
+//            FUNCIONALIDAD PAGINACION
 
+botonPaginaPrevia.onclick = () => {
 
+    if (filtroBusqueda.value === "characters" && paginaActual > 1) {
+        paginaActual = paginaActual - 1
+        mostrarInformacionPersonajes()
+    }
 
+    else if (filtroBusqueda.value === "episodes" && paginaActual > 1) {
+        paginaActual = paginaActual - 1
+        mostrarInformacionEpisodios()
+    }
 
+    else if (filtroBusqueda.value === "locations" && paginaActual > 1) {
+        paginaActual = paginaActual - 1
+        mostrarInformacionUbicaciones()
+    }
+}
 
+botonPaginaSiguiente.onclick = () => {
 
+    if (filtroBusqueda.value === "characters" && paginaActual < 42) {
+        paginaActual = paginaActual + 1
+        mostrarInformacionPersonajes()
+    }
 
+    else if (filtroBusqueda.value === "episodes" && paginaActual < 3) {
+        paginaActual = paginaActual + 1
+        mostrarInformacionEpisodios()
+    }
 
+    else if (filtroBusqueda.value === "locations" && paginaActual < 7) {
+        paginaActual = paginaActual + 1
+        mostrarInformacionUbicaciones()
+    }
+}
 
-
-
-
-// prev.onclick = () => {
-
-  
-
-//     // if (paginaActual === 1) {
-//     //     prev.disabled = true
-//     // } else if (paginaActual > 1) {
-//     //     prev.disabled = false
-//     // }
-//     paginaActual = paginaActual - 1
-//     // mostrarInformacionPersonajes()
-//     // mostrarInformacionEpisodios()
-//     // mostrarInformacionUbicaciones()
-    
-// }
-
-// next.onclick = () => {
-//     paginaActual = paginaActual + 1
-//     // mostrarInformacionPersonajes()
-//     // mostrarInformacionEpisodios()
-//     // mostrarInformacionUbicaciones()
-// }
