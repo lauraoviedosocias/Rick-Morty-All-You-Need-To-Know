@@ -17,29 +17,6 @@ let paginaActual = 1
 
 
 
-// prev.onclick = () => {
-
-  
-
-//     // if (paginaActual === 1) {
-//     //     prev.disabled = true
-//     // } else if (paginaActual > 1) {
-//     //     prev.disabled = false
-//     // }
-//     paginaActual = paginaActual - 1
-//     // mostrarInformacionPersonajes()
-//     // mostrarInformacionEpisodios()
-//     // mostrarInformacionUbicaciones()
-    
-// }
-
-// next.onclick = () => {
-//     paginaActual = paginaActual + 1
-//     // mostrarInformacionPersonajes()
-//     // mostrarInformacionEpisodios()
-//     // mostrarInformacionUbicaciones()
-// }
-
 //                           PERSONAJES
 
 const mostrarInformacionPersonajes = () => {
@@ -135,9 +112,6 @@ const crearTarjetasUbicaciones = (data) => {
 
 //                  FUNCIONALIDAD DE FILTRO
 
-
- 
-
 filtroBusqueda.onchange = () => {
     
     if (filtroBusqueda.value === "episodes") {
@@ -191,6 +165,105 @@ form.oninput = (e) => {
     buscar(inputTexto.value)
 }
 
+
+//            FUNCIONALIDAD ORDENAR A/Z - Z/A
+
+const selectOrden = document.getElementById("select-sort")
+
+// const arrayObjetos = [
+//     {
+//         name: "r"
+//     },
+
+//     {
+//         name: "f"
+//     },
+
+//     {
+//         name: "j"
+//     }
+// ]
+
+// const ordenar = () => {
+    
+//     const arrayOrdenado = arrayObjetos.sort((a, b) => {
+
+//         if (a.name < b.name) {
+//             return -1;
+//         }
+//         if (a.name > b.name) {
+//             return 1;
+//         }
+//         return 0;
+//     } )
+
+//   return arrayOrdenado
+// }
+
+// console.log(ordenar())
+
+
+const mostrarPersonajesOrdenados = () => {
+    
+    fetch(`https://rickandmortyapi.com/api/character?page=${paginaActual}`)
+    .then((res) => res.json())
+    .then((data) => {
+        ordenarPersonajes(data.results)
+        crearTarjetasPersonajes(data.results)
+
+
+    })
+}
+
+
+
+const ordenarPersonajes = (data) => {
+
+    let ordenFiltro = selectOrden.value
+
+    const personajesOrdenados = data.sort( (a, b) => {
+
+        if (ordenFiltro === "a-z" && a.name < b.name) {
+            return -1
+        }
+
+        else if (ordenFiltro === "z-a" && a.name > b.name) {
+            return 1
+        }
+
+        else if (ordenFiltro === "default") {
+            return 0
+
+        }
+
+        
+    })
+
+    return personajesOrdenados
+}    
+
+
+selectOrden.onchange = () => {
+    mostrarPersonajesOrdenados()
+    
+}
+
+
+
+
+// const ordenarPersonajes = (data) => {
+
+
+//     const personajesOrdenados = data.sort((a,b) => {
+//         return a.name - b.name
+//     })
+    
+//     return personajesOrdenados
+// }
+
+
+
+
 //            FUNCIONALIDAD PAGINACION
 
 botonPaginaPrevia.onclick = () => {
@@ -228,4 +301,10 @@ botonPaginaSiguiente.onclick = () => {
         mostrarInformacionUbicaciones()
     }
 }
+
+
+
+
+
+
 
