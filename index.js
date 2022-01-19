@@ -14,206 +14,306 @@ const seccionResultados = document.getElementById("results-section")
 //     console.log(data)
 // })
 
+// VARIABLES GLOBALES
+
 let paginaActual = 1
+let categoriaInicial = "character"
+let nombreInicial = ""
+
+// FUNCIONALIDAD BUSCAR INFO
+
+const buscarInformacion = () => {
+    fetch(`https://rickandmortyapi.com/api/${categoriaInicial}?$name=${nombreInicial}?page=${paginaActual}`)
+        .then((res) => res.json())
+        .then((data) => {
+            crearTarjetas(data.results)
+        })
+}
+
+
+filtroBusqueda.onchange = () => {
+    buscarInformacion(filtroBusqueda.value)
+
+}
+
+
+const crearTarjetas = (data, categoriaInicial, nombreInicial, paginaActual) => {
+
+    
+    if (filtroBusqueda.value === "characters") {
+
+        categoriaInicial = "character"
+        nombreInicial = ""
+        paginaActual = 1
+        console.log(data)
+
+        const tarjetasPersonajes = data.reduce((acc, curr) => {
+            return acc + `
+            <article class="cards">
+                <img src="${curr.image}">
+                <h2>${curr.name}</h2>
+                <ul>
+                    <li>Status: ${curr.status}</li>
+                    <li>Gender: ${curr.gender}</li>
+                    <li>Origin: ${curr.origin.name}</li>
+                    <li>Location: ${curr.location.name}</li>
+                </ul>
+            </article>   
+            `
+        }, "")
+
+        cardsPersonajes.innerHTML = tarjetasPersonajes
+
+    } else if (filtroBusqueda.value === "episodes") {
+        
+
+        categoriaInicial = "episode"
+        nombreInicial = ""
+        paginaActual = 1
+        console.log(data)
+        const tarjetasEpisodios = data.reduce((acc, curr) => {
+            return acc + `
+            <article class="cards">
+                <img src="img/episodes.jpg">
+                <h2>${curr.name}</h2>
+                <ul>
+                    <li>Air date: ${curr.air_date}</li>
+                    <li>Episode ${curr.episode}</li>
+                </ul>
+            </article>   
+            `
+        }, "")
+
+        cardsPersonajes.innerHTML = tarjetasEpisodios
+
+
+    } else if (filtroBusqueda.value === "locations") {
+
+        categoriaInicial = "location"
+        nombreInicial = ""
+        paginaActual = 1
+        console.log(data)
+
+        const tarjetasUbicaciones = data.reduce((acc, curr) => {
+            return acc + `
+            <article class="cards">
+                <img src="img/locations.jpg">
+                <h2>${curr.name}</h2>
+                <ul>
+                    <li>Type: ${curr.type}</li>
+                    <li>Dimension ${curr.dimension}</li>
+                </ul>
+            </article>   
+            `
+        }, "")
+    
+        cardsPersonajes.innerHTML = tarjetasUbicaciones
+    }
+
+
+}
+
+
+
 
 
 
 //                           PERSONAJES
 
-const mostrarInformacionPersonajes = () => {
-    fetch(`https://rickandmortyapi.com/api/character?page=${paginaActual}`)
-        .then((res) => res.json())
-        .then((data) => {
-            crearTarjetasPersonajes(data.results)
-        })
-}
+// const mostrarInformacionPersonajes = () => {
+//     fetch(`https://rickandmortyapi.com/api/character?page=${paginaActual}`)
+//         .then((res) => res.json())
+//         .then((data) => {
+//             crearTarjetasPersonajes(data.results)
+//         })
+// }
 
-mostrarInformacionPersonajes()
+// mostrarInformacionPersonajes()
 
-const crearTarjetasPersonajes = (data) => {
+// const crearTarjetasPersonajes = (data) => {
 
     
-    const tarjetasPersonajes = data.reduce((acc, curr) => {
-        return acc + `
-        <article class="cards">
-            <img src="${curr.image}">
-            <h2>${curr.name}</h2>
-            <ul>
-                <li>Status: ${curr.status}</li>
-                <li>Gender: ${curr.gender}</li>
-                <li>Origin: ${curr.origin.name}</li>
-                <li>Location: ${curr.location.name}</li>
-            </ul>
-        </article>   
-        `
-    }, "")
+//     const tarjetasPersonajes = data.reduce((acc, curr) => {
+//         return acc + `
+//         <article class="cards">
+//             <img src="${curr.image}">
+//             <h2>${curr.name}</h2>
+//             <ul>
+//                 <li>Status: ${curr.status}</li>
+//                 <li>Gender: ${curr.gender}</li>
+//                 <li>Origin: ${curr.origin.name}</li>
+//                 <li>Location: ${curr.location.name}</li>
+//             </ul>
+//         </article>   
+//         `
+//     }, "")
 
-    cardsPersonajes.innerHTML = tarjetasPersonajes
-}
+//     cardsPersonajes.innerHTML = tarjetasPersonajes
+// }
 
-//                           EPISODIOS
+// //                           EPISODIOS
 
-const mostrarInformacionEpisodios = () => {
-    fetch(`https://rickandmortyapi.com/api/episode?page=${paginaActual}`)
-        .then((res) => res.json())
-        .then((data) => {
-            crearTarjetasEpisodios(data.results)
-        })
-}
-
-
-const crearTarjetasEpisodios = (data) => {
-
-    const tarjetasEpisodios = data.reduce((acc, curr) => {
-        return acc + `
-        <article class="cards">
-            <img src="img/episodes.jpg">
-            <h2>${curr.name}</h2>
-            <ul>
-                <li>Air date: ${curr.air_date}</li>
-                <li>Episode ${curr.episode}</li>
-            </ul>
-        </article>   
-        `
-    }, "")
-
-    cardsPersonajes.innerHTML = tarjetasEpisodios
-}
-
-//                        LOCATIONS
+// const mostrarInformacionEpisodios = () => {
+//     fetch(`https://rickandmortyapi.com/api/episode?page=${paginaActual}`)
+//         .then((res) => res.json())
+//         .then((data) => {
+//             crearTarjetasEpisodios(data.results)
+//         })
+// }
 
 
-const mostrarInformacionUbicaciones = () => {
-    fetch(`https://rickandmortyapi.com/api/location?page=${paginaActual}`)
-        .then((res) => res.json())
-        .then((data) => {
-            crearTarjetasUbicaciones(data.results)
-        })
-}
+// const crearTarjetasEpisodios = (data) => {
+
+//     const tarjetasEpisodios = data.reduce((acc, curr) => {
+//         return acc + `
+//         <article class="cards">
+//             <img src="img/episodes.jpg">
+//             <h2>${curr.name}</h2>
+//             <ul>
+//                 <li>Air date: ${curr.air_date}</li>
+//                 <li>Episode ${curr.episode}</li>
+//             </ul>
+//         </article>   
+//         `
+//     }, "")
+
+//     cardsPersonajes.innerHTML = tarjetasEpisodios
+// }
+
+// //                        LOCATIONS
 
 
-const crearTarjetasUbicaciones = (data) => {
-
-    const tarjetasUbicaciones = data.reduce((acc, curr) => {
-        return acc + `
-        <article class="cards">
-            <img src="img/locations.jpg">
-            <h2>${curr.name}</h2>
-            <ul>
-                <li>Type: ${curr.type}</li>
-                <li>Dimension ${curr.dimension}</li>
-            </ul>
-        </article>   
-        `
-    }, "")
-
-    cardsPersonajes.innerHTML = tarjetasUbicaciones
-}
+// const mostrarInformacionUbicaciones = () => {
+//     fetch(`https://rickandmortyapi.com/api/location?page=${paginaActual}`)
+//         .then((res) => res.json())
+//         .then((data) => {
+//             crearTarjetasUbicaciones(data.results)
+//         })
+// }
 
 
-//                  FUNCIONALIDAD DE FILTRO
+// const crearTarjetasUbicaciones = (data) => {
 
-filtroBusqueda.onchange = () => {
+//     const tarjetasUbicaciones = data.reduce((acc, curr) => {
+//         return acc + `
+//         <article class="cards">
+//             <img src="img/locations.jpg">
+//             <h2>${curr.name}</h2>
+//             <ul>
+//                 <li>Type: ${curr.type}</li>
+//                 <li>Dimension ${curr.dimension}</li>
+//             </ul>
+//         </article>   
+//         `
+//     }, "")
+
+//     cardsPersonajes.innerHTML = tarjetasUbicaciones
+// }
+
+
+// //                  FUNCIONALIDAD DE FILTRO
+
+// filtroBusqueda.onchange = () => {
     
-    if (filtroBusqueda.value === "episodes") {
-        mostrarInformacionEpisodios()
-    }
+//     if (filtroBusqueda.value === "episodes") {
+//         mostrarInformacionEpisodios()
+//     }
 
-    else if (filtroBusqueda.value === "characters") {
-        mostrarInformacionPersonajes()
-    }
-    else if (filtroBusqueda.value === "locations") {
-        mostrarInformacionUbicaciones()
-    }
+//     else if (filtroBusqueda.value === "characters") {
+//         mostrarInformacionPersonajes()
+//     }
+//     else if (filtroBusqueda.value === "locations") {
+//         mostrarInformacionUbicaciones()
+//     }
 
-}
+// }
 
 //                  FUNCIONALIDAD BUSQUEDA POR INPUT TEXT POR CADA CATEGORIA
 
 
-const buscar = (nombre) => {
+// const buscar = (nombre) => {
 
-    if (filtroBusqueda.value === "characters") {
+//     if (filtroBusqueda.value === "characters") {
 
-        fetch(`https://rickandmortyapi.com/api/character/?name=${nombre}`)
-        .then((res) => res.json())
-        .then((data) => {
-            crearTarjetasPersonajes(data.results)
-        })
-    }
+//         fetch(`https://rickandmortyapi.com/api/character/?name=${nombre}`)
+//         .then((res) => res.json())
+//         .then((data) => {
+//             crearTarjetasPersonajes(data.results)
+//         })
+//     }
 
-    else if (filtroBusqueda.value === "episodes") {
+//     else if (filtroBusqueda.value === "episodes") {
 
-        fetch(`https://rickandmortyapi.com/api/episode/?name=${nombre}`)
-            .then((res) => res.json())
-            .then((data) => {
-                crearTarjetasEpisodios(data.results)
-            })
-    }
+//         fetch(`https://rickandmortyapi.com/api/episode/?name=${nombre}`)
+//             .then((res) => res.json())
+//             .then((data) => {
+//                 crearTarjetasEpisodios(data.results)
+//             })
+//     }
 
-    else if (filtroBusqueda.value === "locations") {
-        fetch(`https://rickandmortyapi.com/api/location/?name=${nombre}`)
-            .then((res) => res.json())
-            .then((data) => {
-                crearTarjetasUbicaciones(data.results)
-            })
-    }
+//     else if (filtroBusqueda.value === "locations") {
+//         fetch(`https://rickandmortyapi.com/api/location/?name=${nombre}`)
+//             .then((res) => res.json())
+//             .then((data) => {
+//                 crearTarjetasUbicaciones(data.results)
+//             })
+//     }
 
-}
+// }
 
-form.oninput = (e) => {
-    e.preventDefault();
-    buscar(inputTexto.value)
-}
+// form.oninput = (e) => {
+//     e.preventDefault();
+//     buscar(inputTexto.value)
+// }
 
 
 //            FUNCIONALIDAD ORDENAR PERSONAJES A/Z - Z/A
 
-const selectOrden = document.getElementById("select-sort")
+// const selectOrden = document.getElementById("select-sort")
 
 
-const mostrarPersonajesOrdenados = () => {
+// const mostrarPersonajesOrdenados = () => {
     
-    fetch(`https://rickandmortyapi.com/api/character?page=${paginaActual}`)
-    .then((res) => res.json())
-    .then((data) => {
-        ordenarPersonajes(data.results)
-        crearTarjetasPersonajes(data.results)
+//     fetch(`https://rickandmortyapi.com/api/character?page=${paginaActual}`)
+//     .then((res) => res.json())
+//     .then((data) => {
+//         ordenarPersonajes(data.results)
+//         crearTarjetasPersonajes(data.results)
 
 
-    })
-}
+//     })
+// }
 
-const ordenarPersonajes = (data) => {
+// const ordenarPersonajes = (data) => {
 
-    let ordenFiltro = selectOrden.value
+//     let ordenFiltro = selectOrden.value
 
-    const personajesOrdenados = data.sort( (a, b) => {
+//     const personajesOrdenados = data.sort( (a, b) => {
 
-        if (ordenFiltro === "a-z" && a.name < b.name) {
-            return -1
-        }
+//         if (ordenFiltro === "a-z" && a.name < b.name) {
+//             return -1
+//         }
 
-        else if (ordenFiltro === "z-a" && a.name > b.name) {
-            return -1
-        }
+//         else if (ordenFiltro === "z-a" && a.name > b.name) {
+//             return -1
+//         }
 
-        else if (ordenFiltro === "default") {
-            return 0
+//         else if (ordenFiltro === "default") {
+//             return 0
 
-        }
+//         }
 
         
-    })
+//     })
 
-    return personajesOrdenados
-}    
+//     return personajesOrdenados
+// }    
 
 
-selectOrden.onchange = () => {
-    mostrarPersonajesOrdenados()
+// selectOrden.onchange = () => {
+//     mostrarPersonajesOrdenados()
     
-}
+// }
 
 //            FUNCIONALIDAD ORDENAR EPISODIOS A/Z - Z/A
 
@@ -224,9 +324,6 @@ selectOrden.onchange = () => {
 cardsPersonajes.onclick = () => {
 
     seccionResultados.style.display = "none"
-    
-    
-
 
 
 }
