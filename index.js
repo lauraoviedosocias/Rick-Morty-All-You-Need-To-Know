@@ -5,6 +5,7 @@ const inputTexto = document.getElementById("input-search")
 const form = document.getElementById("form-search")
 const botonPaginaPrevia = document.getElementById("prev")
 const botonPaginaSiguiente = document.getElementById("next")
+const seccionResultados = document.getElementById("results-section")
 
 
 // fetch("https://rickandmortyapi.com/api")
@@ -166,41 +167,9 @@ form.oninput = (e) => {
 }
 
 
-//            FUNCIONALIDAD ORDENAR A/Z - Z/A
+//            FUNCIONALIDAD ORDENAR PERSONAJES A/Z - Z/A
 
 const selectOrden = document.getElementById("select-sort")
-
-// const arrayObjetos = [
-//     {
-//         name: "r"
-//     },
-
-//     {
-//         name: "f"
-//     },
-
-//     {
-//         name: "j"
-//     }
-// ]
-
-// const ordenar = () => {
-    
-//     const arrayOrdenado = arrayObjetos.sort((a, b) => {
-
-//         if (a.name < b.name) {
-//             return -1;
-//         }
-//         if (a.name > b.name) {
-//             return 1;
-//         }
-//         return 0;
-//     } )
-
-//   return arrayOrdenado
-// }
-
-// console.log(ordenar())
 
 
 const mostrarPersonajesOrdenados = () => {
@@ -215,8 +184,6 @@ const mostrarPersonajesOrdenados = () => {
     })
 }
 
-
-
 const ordenarPersonajes = (data) => {
 
     let ordenFiltro = selectOrden.value
@@ -228,7 +195,7 @@ const ordenarPersonajes = (data) => {
         }
 
         else if (ordenFiltro === "z-a" && a.name > b.name) {
-            return 1
+            return -1
         }
 
         else if (ordenFiltro === "default") {
@@ -248,18 +215,49 @@ selectOrden.onchange = () => {
     
 }
 
+//            FUNCIONALIDAD ORDENAR EPISODIOS A/Z - Z/A
 
 
+//                 FUNCIONALIDAD MAS DETALLES
 
-// const ordenarPersonajes = (data) => {
 
+cardsPersonajes.onclick = () => {
 
-//     const personajesOrdenados = data.sort((a,b) => {
-//         return a.name - b.name
-//     })
+    seccionResultados.style.display = "none"
     
-//     return personajesOrdenados
-// }
+    
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -308,3 +306,34 @@ botonPaginaSiguiente.onclick = () => {
 
 
 
+// const arrayObjetos = [
+//     {
+//         name: "r"
+//     },
+
+//     {
+//         name: "f"
+//     },
+
+//     {
+//         name: "j"
+//     }
+// ]
+
+// const ordenar = () => {
+    
+//     const arrayOrdenado = arrayObjetos.sort((a, b) => {
+
+//         if (a.name < b.name) {
+//             return -1;
+//         }
+//         if (a.name > b.name) {
+//             return 1;
+//         }
+//         return 0;
+//     } )
+
+//   return arrayOrdenado
+// }
+
+// console.log(ordenar())
