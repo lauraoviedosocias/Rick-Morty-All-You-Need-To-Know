@@ -10,7 +10,7 @@ const seccionDetalles = document.getElementById("details-section-container")
 const botonBack = document.getElementById("back")
 
 
-//                          VARIABLE GLOBAL
+//                          VARIABLE GLOBALE
 let paginaActual = 1
 
 //                           PERSONAJES
@@ -19,6 +19,7 @@ const mostrarInformacionPersonajes = () => {
     fetch(`https://rickandmortyapi.com/api/character?page=${paginaActual}`)
         .then((res) => res.json())
         .then((data) => {
+            ultimaPagina = data.info.pages
             crearTarjetasPersonajes(data.results)
             asignarClickTarjetaPersonaje()
         })
@@ -307,33 +308,6 @@ selectOrden.onchange = () => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //                 FUNCIONALIDAD MAS DETALLES
 
 const asignarClickTarjetaPersonaje = () => {
@@ -392,10 +366,8 @@ console.log(botonBack)
 
 
 
-
-
-
 //            FUNCIONALIDAD PAGINACION
+
 
 botonPaginaPrevia.onclick = () => {
 
@@ -432,41 +404,3 @@ botonPaginaSiguiente.onclick = () => {
         mostrarInformacionUbicaciones()
     }
 }
-
-
-
-
-
-
-
-// const arrayObjetos = [
-//     {
-//         name: "r"
-//     },
-
-//     {
-//         name: "f"
-//     },
-
-//     {
-//         name: "j"
-//     }
-// ]
-
-// const ordenar = () => {
-    
-//     const arrayOrdenado = arrayObjetos.sort((a, b) => {
-
-//         if (a.name < b.name) {
-//             return -1;
-//         }
-//         if (a.name > b.name) {
-//             return 1;
-//         }
-//         return 0;
-//     } )
-
-//   return arrayOrdenado
-// }
-
-// console.log(ordenar())
