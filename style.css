@@ -91,4 +91,33 @@ input, select, button {
   background-color: #fdfcfb;
 }
 
+.details-section-container {
+  display: none;
+  justify-content: center;
+  max-width: 1500px;
+  margin: auto;
+  margin-top: 30px;
+  padding: 15px;
+  background-color: #fad2c9;
+}
+
+.details-section {
+  display: flex;
+  width: 800px;
+  height: 500px;
+  margin-top: 30px;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #fdfcfb;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.back {
+  display: none;
+}
+
 /*# sourceMappingURL=style.css.map */

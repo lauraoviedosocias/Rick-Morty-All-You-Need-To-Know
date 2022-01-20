@@ -120,3 +120,33 @@ input, select, button {
     background-color: $color-fondo;
 }
 
+// SECCION DETALLES
+
+.details-section-container {
+    display: none;
+    justify-content: center;
+    max-width: 1500px;
+    margin: auto;
+    margin-top: 30px;
+    padding: 15px;
+    background-color: $color-principal;
+}
+
+.details-section {
+    display: flex;
+    width: 800px;
+    height: 500px;
+    margin-top: 30px;
+    padding: 15px;
+    border-radius: $borde-redondeado;
+    background-color: $color-fondo;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.back {
+    display: none;
+}
