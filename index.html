@@ -13,7 +13,7 @@
     <div class="main-section">
         <header>
     
-            <a class="container-logo" id="home-button"><img class= "img-logo" src="img/rick_and_morty.jpg"></a>
+            <a class="container-logo" id="home-button"><img class= "img-logo" src="img/rick_and_morty.jpg" alt="rick and morty"></a>
             <h1>All you need to know about Rick & Morty</h1>
         </header>
     
@@ -22,24 +22,25 @@
 
             <div class="container-search">
                 <h3>Search by:</h3>
-                <label for="search-sort"></label>
+                <label for="search-sort" aria-label="busqueda por categoria"></label>
                 <select name="search-sort" id="search-sort">
                     <option value="characters" id="input-characters">Characters</option>
                     <option value="episodes" id="input-episodes">Episodes</option>
                     <option value="locations" id="input-locations">Locations</option>
                 </select>
 
-                <form class="input-search" id="form-search">
-                    <input type="text" onfocus="this.value=''" id="input-search" class="input-search" placeholder="I'm looking for..." aria-labelledby="search-title">
+                <form class="input-search" id="form-search" aria-label="busqueda por nombre">
+                    <label for="input-search"></label>
+                    <input type="text" onfocus="this.value=''" id="input-search" class="input-search" placeholder="I'm looking for...">
                 </form>
                 <h3>Sort</h3>
-                <label for="select-sort"></label>
+                <label for="select-sort" aria-label="ordenar alfabeticamente"></label>
                 <select name="select-sort" id="select-sort">
                     <option value="default">Default</option>
                     <option value="a-z">A/Z</option>
                     <option value="z-a">Z/A</option>
                 </select>
-                <button id="back" class="back"><i class="fas fa-backward"></i> Back</button>
+                <button id="back" class="back"  aria-label="go back"><i class="fas fa-backward"></i> Back</button>
             </div>             
             
             <!-- RESULTS SECTION -->
