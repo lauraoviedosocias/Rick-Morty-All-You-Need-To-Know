@@ -120,4 +120,15 @@ input, select, button {
   display: none;
 }
 
+@media (max-width: 1500px) {
+  #cards-personajes {
+    justify-content: center;
+  }
+}
+@media (max-width: 788px) {
+  .container-search, .pages {
+    display: none;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */

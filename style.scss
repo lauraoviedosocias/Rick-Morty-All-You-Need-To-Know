@@ -150,3 +150,17 @@ input, select, button {
 .back {
     display: none;
 }
+
+//              RESPONSIVE
+
+@media (max-width: 1500px) {
+    #cards-personajes {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 788px) {
+    .container-search, .pages {
+        display: none;
+    }
+}  
