@@ -404,3 +404,4 @@ botonPaginaSiguiente.onclick = () => {
         mostrarInformacionUbicaciones()
     }
 }
+

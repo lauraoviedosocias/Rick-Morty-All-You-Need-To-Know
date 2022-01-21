@@ -135,13 +135,9 @@ input, select, button {
     flex-wrap: wrap;
   }
 }
-@media (max-width: 448px) {
-  .pages {
+@media (max-width: 487px) {
+  .page-word {
     display: none;
-  }
-
-  .pages-mobile {
-    display: flex;
   }
 }
 
