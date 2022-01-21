@@ -160,7 +160,7 @@ input, select, button {
 }
 
 @media (max-width: 788px) {
-    .container-search, .pages {
-        display: none;
+    .container-search {
+        flex-wrap: wrap;
     }
 }  
