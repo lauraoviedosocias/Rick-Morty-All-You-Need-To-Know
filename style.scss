@@ -73,10 +73,10 @@ img {
     @include flex-centrar;
 }
 
-h1, h2, h3, input {
+h1, h2, h3 {
     margin: 0;
     margin-top: 30px;
-    padding-left: 10px;
+    padding-left: 15px;
     font-family: $tipografia-principal;
 }
 
@@ -92,6 +92,7 @@ input, select, button {
     color: $color-tipografia;
     margin-top: 25px;
     padding-right: 10px;
+    margin-left: 15px;
     margin-right: 10px;
 }
 
@@ -100,6 +101,10 @@ input, select, button {
 
 .container-results {
     @include flex-nav();
+}
+
+.pages-mobile {
+    display: none;
 }
 
 #cards-personajes {
@@ -162,5 +167,14 @@ input, select, button {
 @media (max-width: 788px) {
     .container-search {
         flex-wrap: wrap;
+    }
+}  
+
+@media (max-width: 448px) {
+    .pages {
+        display: none;
+    }
+    .pages-mobile {
+        display: flex;
     }
 }  
