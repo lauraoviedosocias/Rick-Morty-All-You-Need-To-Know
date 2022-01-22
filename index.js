@@ -271,7 +271,7 @@ const ordenarUbicaciones = (data) => {
 
     let ordenFiltro = selectOrden.value
 
-    const ubicacionesOrdenadas = data.sort( (a, b) => {
+    const ubicacionesOrdenadas = data.sort((a, b) => {
 
         if (ordenFiltro === "a-z" && a.name < b.name) {
             return -1
