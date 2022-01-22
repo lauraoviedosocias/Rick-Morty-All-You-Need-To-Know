@@ -108,8 +108,7 @@ input, select, button {
 
 .details-section {
   display: flex;
-  width: 800px;
-  height: 500px;
+  width: 500px;
   margin-top: 30px;
   padding: 15px;
   border-radius: 8px;
@@ -130,14 +129,34 @@ input, select, button {
     justify-content: center;
   }
 }
-@media (max-width: 788px) {
+@media (max-width: 1000px) {
   .container-search {
     flex-wrap: wrap;
+  }
+
+  .details-section {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .img-mas-detalles {
+    height: 100%;
+    width: auto;
   }
 }
 @media (max-width: 487px) {
   .page-word {
     display: none;
+  }
+
+  .details-section {
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  .img-mas-detalles {
+    height: 100%;
+    width: auto;
   }
 }
 

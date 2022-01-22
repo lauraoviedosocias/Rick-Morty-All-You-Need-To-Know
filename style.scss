@@ -139,8 +139,8 @@ input, select, button {
 
 .details-section {
     display: flex;
-    width: 800px;
-    height: 500px;
+    width: 500px;
+    // height: 250px;
     margin-top: 30px;
     padding: 15px;
     border-radius: $borde-redondeado;
@@ -164,9 +164,19 @@ input, select, button {
     }
 }
 
-@media (max-width: 788px) {
+@media (max-width: 1000px) {
     .container-search {
         flex-wrap: wrap;
+    }
+
+    .details-section {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .img-mas-detalles {
+        height: 100%;
+        width: auto;
     }
 }  
 
@@ -174,4 +184,17 @@ input, select, button {
     .page-word {
         display: none;
     }
-}  
+
+    .details-section {
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    .img-mas-detalles {
+        height: 100%;
+        width: auto;
+
+    }
+
+} 
+

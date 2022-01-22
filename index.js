@@ -339,7 +339,9 @@ const crearSeccionMasDetalles = (curr) => {
 
     seccionDetalles.innerHTML = `
                     <article class="details-section" data-id=${curr.id}>
-                        <img src="${curr.image}">
+                        <div class="img-container">
+                        <img class="img-mas-detalles" src="${curr.image}">
+                        </div>
                         <div class="content">
                             <h2>${curr.name}</h2>
                          
