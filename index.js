@@ -16,15 +16,26 @@ let paginaActual = 1
 //                           PERSONAJES
 
 const mostrarInformacionPersonajes = () => {
+    // Este buscador no funciona bien en combinación con la busquda y la paginación. 
+    // Cuando busco "rick" y aprieto la pagina 2, no veo la pagina 2 de rick, sino 
+    // la pagina 2 de todos los personajes. 
+    // No necesitas tantos fetch sino uno solo que pueda seguir todas las variables. 
+    // Por ejemplo, asi:
+    // const name = inputTexto.value 
+    // fetch(`https://rickandmortyapi.com/api/character?page=${paginaActual}&name=${name}`)
+    // Deberias hacer lo mismo para episodios y locaciones
     fetch(`https://rickandmortyapi.com/api/character?page=${paginaActual}`)
         .then((res) => res.json())
         .then((data) => {
+            // falta el const aca 
             ultimaPagina = data.info.pages
             crearTarjetasPersonajes(data.results)
             asignarClickTarjetaPersonaje()
         })
 }
 
+// estas variables, que se ejecutan apenas carga la web, deberian estar siempre 
+// al final de todo, para que el flujo de ejecucion sea mas facil de seguir
 mostrarInformacionPersonajes()
 
 const crearTarjetasPersonajes = (data) => {
@@ -336,7 +347,6 @@ const buscarPersonaje = (id) => {
 }
 
 const crearSeccionMasDetalles = (curr) => {
-
     seccionDetalles.innerHTML = `
                     <article class="details-section" data-id=${curr.id}>
                         <div class="img-container">
@@ -363,6 +373,7 @@ botonBack.onclick = () => {
     botonBack.style.display = "none"
 }
 
+// no dejes console log en una entrega
 console.log(botonBack)
 
 

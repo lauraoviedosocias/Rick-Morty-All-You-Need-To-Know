@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <!-- Falta un favicon -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
     <title>Rick & Morty</title>
 </head>
@@ -29,6 +30,8 @@
                 </select>
 
                 <form class="input-search" id="form-search">
+                    <!-- No se recomienda agregar funciones como este onfocus ya que viola el principio de separación de responsabilidades. 
+                    Es mejor que agregues ese onfocus en javascript.  -->
                     <input type="text" onfocus="this.value=''" id="input-search" aria-label="search by name" class="input-search" placeholder="I'm looking for...">
                 </form>
                 <h3>Sort:</h3>
