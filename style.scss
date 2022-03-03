@@ -1,3 +1,5 @@
+
+// Es mejor importar tipografias en html, ya que la carga es mas rapida. 
 @import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@100;300;400;600&family=Roboto:wght@100;300;400;500&display=swap');
 
 $tipografia-principal: "Azeret Mono";
@@ -9,7 +11,6 @@ $borde-redondeado: 8px;
 $color-secundario: #cfaad7;
 
 $sombra: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-
 
 @mixin flex-nav {
     display: flex;
@@ -23,6 +24,8 @@ $sombra: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     align-items: center;
 }
 
+// No aprovechas el anidado que te da sass, es importante practicarlo - y te aseguro que una vez 
+// que te acostumbras, es un viaje de ida!
 body {
     margin: 0;
     box-sizing: border-box;
